@@ -1,0 +1,5 @@
+[run]
+omit = journal/migrations/*, journal/__init__.py, journal/admin.py
+
+[report]
+omit = journal/migrations/*, journal/__init__.py, journal/admin.py 

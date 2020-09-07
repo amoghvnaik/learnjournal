@@ -1,0 +1,4 @@
+learnjournal/__pycache__/
+journal/__pycache__/
+journal/migrations/__pycache__/
+.coverage

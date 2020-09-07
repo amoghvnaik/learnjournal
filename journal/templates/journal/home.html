@@ -1,0 +1,17 @@
+{% extends "./layout.html" %}
+{% block body_content %}
+{% if resource %}
+    <ul>
+    {% for r in resource %}
+        <li><a href="{{ r.url }}">{{ r.title }}</a></li>
+        <p> Software: {{ r.software }} </p>
+        <p> Notes: {{ r.notes }} </p>
+        <form method="GET" method="POST" action="./edit/{{ r.id }}">
+			<input type="submit" value="Edit / Delete" name="edit">
+		</form>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No resources are available.</p>
+{% endif %}
+{% endblock body_content %}

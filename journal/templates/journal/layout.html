@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Journal App</title>
+	<style>
+	.navbar {
+	  width: 100%;
+	}
+	.navbar-text span {
+	  text-align: right;
+	}
+	</style>
+	</head>
+	<body>
+		<h1>Journal App</h1>
+		<div class="navbar">
+				<a href="/journal">Home</a>
+				<a href="/journal/form">Form</a>
+		</div>
+
+		{% block body_content %} {% endblock %}
+	</body>
+</html>
