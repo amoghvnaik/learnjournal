@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: journalapp
+  labels: 
+    app: journalapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: journalapp
+  template:
+    metadata:
+      labels:
+        app: journalapp
+    spec:
+      containers:
+      - name: journalapp
+        image: instance-1:5000/version4
+        ports:
+        - containerPort: 8000
+        env:
+        - name: NAME
+          value: {{NAME}}
+        - name: TEST_NAME
+          value: {{TEST_NAME}}
+        - name: USER
+          value: {{USER}}
+        - name: PASSWORD
+          value: {{PASSWORD}}
+        - name: HOST
+          value: {{HOST}}
+        - name: SECRET_KEY
+          value: {{SECRET_KEY}}
+        - name: MY_IP
+          value: {{MY_IP}}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: journalapp
+spec:
+  selector:
+    app: journalapp
+  ports: 
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+  type: LoadBalancer
