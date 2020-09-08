@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: journalapp
-        image: instance-1:5000/version4
+        image: instance-1:5000/journalapp
         ports:
         - containerPort: 8000
         env:
@@ -32,8 +32,6 @@ spec:
           value: {{HOST}}
         - name: SECRET_KEY
           value: {{SECRET_KEY}}
-        - name: MY_IP
-          value: {{MY_IP}}
 
 ---
 apiVersion: v1
