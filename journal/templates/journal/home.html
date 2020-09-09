@@ -8,7 +8,8 @@
         <p> Notes: {{ r.notes }} </p>
         <form method="GET" method="POST" action="./edit/{{ r.id }}">
 			<input type="submit" value="Edit / Delete" name="edit">
-		</form>
+	</form>
+    <br>
     {% endfor %}
     </ul>
 {% else %}

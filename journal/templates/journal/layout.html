@@ -3,19 +3,25 @@
 	<head>
 		<title>Journal App</title>
 	<style>
+	.title {
+	  color: #00008B;
+	}
 	.navbar {
 	  width: 100%;
+          background-color: #DEB887;
 	}
-	.navbar-text span {
+	.navbar a {
 	  text-align: right;
+	  color: #006400;
+          font-size: 20px;
 	}
 	</style>
 	</head>
 	<body>
-		<h1>Journal App</h1>
+		<h1 class="title">Journal App</h1>
 		<div class="navbar">
-				<a href="/journal">Home</a>
-				<a href="/journal/form">Form</a>
+			<a href="/journal">Home</a>
+			<a href="/journal/form">Form</a>
 		</div>
 
 		{% block body_content %} {% endblock %}
