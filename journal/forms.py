@@ -1,8 +1,8 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Resource
+from .models import Resources
 
 class ResourceForm(ModelForm):
     class Meta:
-        model = Resource
+        model = Resources
         fields = '__all__'

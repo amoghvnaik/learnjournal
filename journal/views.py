@@ -1,16 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Resource
+from .models import Resources
 from .forms import ResourceForm
 
 def home(request):
-    resource = Resource.objects.all()
+    resource = Resources.objects.all()
     context = {'resource': resource}
     return render(request, 'journal/home.html', context)
 
 def form(request):
     if request.method == 'POST':
-        form = ResourceForm(request.POST)
+        form = ResourceForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/journal')
@@ -21,9 +21,9 @@ def form(request):
     return render(request, 'journal/form.html', {'form': form})
 
 def edit(request, id):
-    resource = get_object_or_404(Resource, pk=id)
+    resource = get_object_or_404(Resources, pk=id)
     if request.method == 'POST' and 'edit' in request.POST:
-        form = ResourceForm(request.POST, instance=resource)
+        form = ResourceForm(request.POST, request.FILES, instance=resource)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/journal')

@@ -29,7 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+MEDIA_ROOT="/home/amoghvnaik/learnjournal/media/"
+MEDIA_URL="/media/"
 # Application definition
 
 INSTALLED_APPS = [

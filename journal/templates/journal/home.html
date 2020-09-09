@@ -1,17 +1,29 @@
 {% extends "./layout.html" %}
 {% block body_content %}
 {% if resource %}
-    <ul>
+    <table>
+      <tr>
+	      <th>Resource</th>
+	      <th>Software</th>
+	      <th>Notes</th>
+	      <th>Image</th>
+	      <th>Edit/Delete</th>
+      <tr/>
+    <hr>
     {% for r in resource %}
-        <li><a href="{{ r.url }}">{{ r.title }}</a></li>
-        <p> Software: {{ r.software }} </p>
-        <p> Notes: {{ r.notes }} </p>
-        <form method="GET" method="POST" action="./edit/{{ r.id }}">
+    <tr>
+	<td><a href="{{ r.url }}">{{ r.title }}</a></td>
+	<td>{{ r.software }}</td>
+	<td>{{ r.notes }}</td>
+	{% if r.image %}
+	  <td><a href="{{ r.image.url }}">View image</a></td>
+	{% endif %}
+	<td><form method="GET" method="POST" action="./edit/{{ r.id }}">
 			<input type="submit" value="Edit / Delete" name="edit">
-	</form>
-    <br>
+		</form></td>
+    </tr>
     {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <p>No resources are available.</p>
 {% endif %}

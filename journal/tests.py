@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Resource
+from .models import Resources
 from django.urls import reverse
 
 class TestDatabase(TestCase):
@@ -7,18 +7,18 @@ class TestDatabase(TestCase):
     def test_resource(self):
         
         #create resource
-        resource1 = Resource(title="Gatling Cheat Sheet", url="https://gatling.io/docs/current/cheat-sheet/#simulation-configuration", software="Gatling", notes="Very helpful")
+        resource1 = Resources(title="Gatling Cheat Sheet", url="https://gatling.io/docs/current/cheat-sheet/#simulation-configuration", software="Gatling", notes="Very helpful")
         resource1.save()
-        self.assertEqual(Resource.objects.count(), 1)
+        self.assertEqual(Resources.objects.count(), 1)
         
         #update resource
         resource1.notes = "Extremely helpful"
         resource1.save()
-        self.assertEqual(Resource.objects.filter(title='Gatling Cheat Sheet').first().notes, "Extremely helpful")
+        self.assertEqual(Resources.objects.filter(title='Gatling Cheat Sheet').first().notes, "Extremely helpful")
         
         #delete resource
         resource1.delete()
-        self.assertEqual(Resource.objects.count(), 0)
+        self.assertEqual(Resources.objects.count(), 0)
 
 class TestViews(TestCase):
 
