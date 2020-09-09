@@ -5,8 +5,7 @@ pipeline{
 		stage('--building--'){
 			steps{
                         	sh '''. ~/.bashrc
-				      docker build --build-arg NAME=$NAME --build-arg TEST_NAME=$TEST_NAME --build-arg USER=$USER -
--build-arg PASSWORD=$PASSWORD --build-arg HOST=$HOST --build-arg SECRET_KEY=$SECRET_KEY -t journalapp .
+				      docker build --build-arg NAME=$NAME --build-arg TEST_NAME=$TEST_NAME --build-arg USER=$USER --build-arg PASSWORD=$PASSWORD --build-arg HOST=$HOST --build-arg SECRET_KEY=$SECRET_KEY -t journalapp .
                                       docker tag journalapp instance-1:5000/journalapp
 				      docker push instance-1:5000/journalapp
 				      '''
