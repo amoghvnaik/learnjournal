@@ -30,7 +30,7 @@ def edit(request, id):
         else:
             pass
     elif request.method == 'POST' and 'delete' in request.POST:
-        Resource.objects.filter(pk=id).delete()
+        Resources.objects.filter(pk=id).delete()
         return HttpResponseRedirect('/journal')
     else: 
         form = ResourceForm(instance=resource)

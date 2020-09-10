@@ -6,7 +6,7 @@ class Resources(models.Model):
     url = models.CharField(max_length=200)
     software = models.CharField(max_length=200)
     notes = models.CharField(max_length=500)
-    image = models.FileField(upload_to='uploads/')
+    image = models.ImageField(upload_to='uploads/')
 
     def __str__(self):
         return [self.id, self.title, self.url, self.software, self.notes]
