@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Resources
 from .forms import ResourceForm
+import os
 
 def home(request):
     resource = Resources.objects.all()
@@ -25,12 +26,23 @@ def edit(request, id):
     if request.method == 'POST' and 'edit' in request.POST:
         form = ResourceForm(request.POST, request.FILES, instance=resource)
         if form.is_valid():
+            image_before=Resources.objects.get(pk=id).image
             form.save()
+            image_after=Resources.objects.get(pk=id).image
+            if image_before and image_before != image_after:
+                os.remove("/home/amoghvnaik/learnjournal/media/"+str(image_before))
+            else:
+                pass
             return HttpResponseRedirect('/journal')
         else:
             pass
     elif request.method == 'POST' and 'delete' in request.POST:
-        Resources.objects.filter(pk=id).delete()
+        image=Resources.objects.get(pk=id).image
+        if image:
+            os.remove("/home/amoghvnaik/learnjournal/media/"+str(image))
+        else:
+            pass
+        Resources.objects.get(pk=id).delete()
         return HttpResponseRedirect('/journal')
     else: 
         form = ResourceForm(instance=resource)
