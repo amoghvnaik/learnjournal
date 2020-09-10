@@ -1,0 +1,5 @@
+1. As a journal app user, I want to upload links to technology articles so that I can view them later
+2. As a journal app user, I want each resource to have a title so that I can easily find it later
+3. As a journal app user, I want each resource to indicate the software that the article is talking about so that I can easily see which articles I should read if I am researching a certain piece of software
+4. As a journal app user, I want each resource to have a 'notes' section so that I can write down some useful information about the article
+5. As a journal app user, I want to be able to upload images so that I can store pictures and diagrams related to the articles
