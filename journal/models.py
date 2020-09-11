@@ -9,4 +9,4 @@ class Resources(models.Model):
     image = models.ImageField(upload_to='uploads/', blank=True, default='')
 
     def __str__(self):
-        return [self.id, self.title, self.url, self.software, self.notes]
+        return [self.id, self.title, self.url, self.software, self.notes, self.image]
